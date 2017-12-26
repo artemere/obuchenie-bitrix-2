@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ffe3c2f8-4fdb-4b6f-ab51-ae3408b70e0c" name="БитриксОбучениеЛокальный" url="http://192.168.1.46">
+        <fileTransfer host="192.168.1.46" port="22" rootFolder="/home/bitrix/www" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
