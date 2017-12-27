@@ -64,7 +64,7 @@ if ('Y' == $arParams['SHOW_PARENT_NAME'] && 0 < $arResult['SECTION']['ID'])
 if (0 < $arResult["SECTIONS_COUNT"])
 {
 ?>
-<ul class="<? echo $arCurView['LIST']; ?>">
+<ul class="links <? echo $arCurView['LIST']; ?>">
 <?
 	switch ($arParams['VIEW_MODE'])
 	{
@@ -95,12 +95,12 @@ if (0 < $arResult["SECTIONS_COUNT"])
 					style="background-image: url('<? echo $arSection['PICTURE']['SRC']; ?>');"
 					title="<? echo $arSection['PICTURE']['TITLE']; ?>"
 				></a>
-				<h2 class="bx_catalog_line_title"><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a><?
+				<a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a><?
 				if ($arParams["COUNT_ELEMENTS"])
 				{
 					?> <span>(<? echo $arSection['ELEMENT_CNT']; ?>)</span><?
 				}
-				?></h2><?
+				?><?
 				if ('' != $arSection['DESCRIPTION'])
 				{
 					?><p class="bx_catalog_line_description"><? echo $arSection['DESCRIPTION']; ?></p><?
