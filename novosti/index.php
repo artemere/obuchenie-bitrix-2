@@ -108,10 +108,18 @@ $APPLICATION->SetTitle("Новости");
                         <!-- Sidebar -->
 
                         <section>
-                            <h3>Just a Subheading</h3>
-                            <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-                                Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-                                Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis et nisi etiam.</p>
+                            <?$APPLICATION->IncludeComponent(
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"COMPONENT_TEMPLATE" => ".default",
+		"AREA_FILE_SHOW" => "sect",
+		"AREA_FILE_SUFFIX" => "inc",
+		"AREA_FILE_RECURSIVE" => "Y",
+		"EDIT_TEMPLATE" => ""
+	),
+	false
+);?>
                             <footer>
                                 <a href="#" class="button">Continue Reading</a>
                             </footer>
@@ -120,36 +128,36 @@ $APPLICATION->SetTitle("Новости");
                         <section>
                             <h3>Разделы</h3>
 
-                            <?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "razrabotka", Array(
-                                "COMPONENT_TEMPLATE" => ".default",
-                                "IBLOCK_TYPE" => "information",	// Тип инфоблока
-                                "IBLOCK_ID" => "12",	// Инфоблок
-                                "SECTION_ID" => $_REQUEST["SECTION_ID"],	// ID раздела
-                                "SECTION_CODE" => "",	// Код раздела
-                                "COUNT_ELEMENTS" => "Y",	// Показывать количество элементов в разделе
-                                "TOP_DEPTH" => "2",	// Максимальная отображаемая глубина разделов
-                                "SECTION_FIELDS" => array(	// Поля разделов
-                                    0 => "",
-                                    1 => "",
-                                ),
-                                "SECTION_USER_FIELDS" => array(	// Свойства разделов
-                                    0 => "",
-                                    1 => "",
-                                ),
-                                "VIEW_MODE" => "LIST",	// Вид списка подразделов
-                                "SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
-                                "SECTION_URL" => "/novosti/#SECTION_CODE_PATH#/",	// URL, ведущий на страницу с содержимым раздела
-                                "CACHE_TYPE" => "A",	// Тип кеширования
-                                "CACHE_TIME" => "36000000",	// Время кеширования (сек.)
-                                "CACHE_GROUPS" => "Y",	// Учитывать права доступа
-                                "ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
-                            ),
-                                false
-                            );?>
+                            <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list", 
+	"section", 
+	array(
+		"COMPONENT_TEMPLATE" => "section",
+		"IBLOCK_TYPE" => "information",
+		"IBLOCK_ID" => "12",
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_CODE" => "",
+		"COUNT_ELEMENTS" => "N",
+		"TOP_DEPTH" => "2",
+		"SECTION_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"VIEW_MODE" => "LINE",
+		"SHOW_PARENT_NAME" => "Y",
+		"SECTION_URL" => "/novosti/#SECTION_CODE_PATH#/",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "36000000",
+		"CACHE_GROUPS" => "Y",
+		"ADD_SECTIONS_CHAIN" => "Y"
+	),
+	false
+);?>
 
-                            <footer>
-                                <a href="#" class="button">More Random Links</a>
-                            </footer>
                         </section>
 
                     </div>
